@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CameraShake;
+
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject gameManager;
     public GameManager GMScript;
 
+    [SerializeField] Animator cameraAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,8 +61,10 @@ public class PlayerBehaviour : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //swing sword
-           // print("attacking boss");
-            if(distFromBoss <= playerAttackRange && playerCanAttack)
+           //  cameraAnimator.SetTrigger("Shake_Slap"); //Screenshake
+            //CameraShaker.Presets.ShortShake3D();
+            // print("attacking boss");
+            if (distFromBoss <= playerAttackRange && playerCanAttack)
             {
                 StartCoroutine(DamageBoss());
             }
@@ -68,6 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     IEnumerator DamageBoss ()
     {
+        
         playerCanAttack = false;
         print("damaged boss");
         bossScript.health -= playerDamage;
