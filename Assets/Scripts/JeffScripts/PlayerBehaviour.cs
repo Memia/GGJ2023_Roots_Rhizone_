@@ -41,7 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(playerhealth <= 0)
         {
-            print("player is dead");
+            //print("player is dead");
             GMScript.StartCoroutine("RestartRun");
             isPlayerAlive = false;
             //play death animation
@@ -58,7 +58,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //swing sword
-            print("attacking boss");
+           // print("attacking boss");
             if(distFromBoss <= playerAttackRange && playerCanAttack)
             {
                 StartCoroutine(DamageBoss());
