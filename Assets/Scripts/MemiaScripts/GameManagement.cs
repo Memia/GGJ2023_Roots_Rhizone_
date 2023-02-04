@@ -9,6 +9,7 @@ public class GameManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         
     }
 
@@ -20,11 +21,6 @@ public class GameManagement : MonoBehaviour
             mutateStats.BeginMutateProcess();
         }
 
-        //DELETE THIS
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartGame();
-        }
 
     }   
     

@@ -55,30 +55,6 @@ MonoBehaviour:
     m_Value: 0.068
     min: 0
     max: 1
---- !u!114 &-2732371961938721769
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
-  m_Name: WhiteBalance
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  temperature:
-    m_OverrideState: 1
-    m_Value: -3
-    min: -100
-    max: 100
-  tint:
-    m_OverrideState: 1
-    m_Value: 30
-    min: -100
-    max: 100
 --- !u!114 &-2111497639909435632
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -179,32 +155,6 @@ MonoBehaviour:
   - {fileID: -8068596140692142040}
   - {fileID: 8194160595324351780}
   - {fileID: -2111497639909435632}
-  - {fileID: 1391153861838187163}
-  - {fileID: -2732371961938721769}
---- !u!114 &1391153861838187163
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb60a22f311433c4c962b888d1393f88, type: 3}
-  m_Name: PaniniProjection
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  distance:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 1
-  cropToFit:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
 --- !u!114 &8194160595324351780
 MonoBehaviour:
   m_ObjectHideFlags: 3

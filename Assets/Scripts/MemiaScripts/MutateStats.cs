@@ -25,13 +25,9 @@ public class MutateStats : MonoBehaviour
     {
         //Setactive the mutation prompt
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeData();
-        }
     }
 
-    public void TakeData()
+    public void SaveData()
     {
         number = int.Parse(input.text.ToString());
 
