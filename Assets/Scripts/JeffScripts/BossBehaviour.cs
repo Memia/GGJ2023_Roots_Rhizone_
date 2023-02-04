@@ -19,6 +19,8 @@ public class BossBehaviour : MonoBehaviour
     public PlayerBehaviour pBScript;
     
 
+    //Sound
+    [SerializeField] AudioClip[] crabSounds;
     // Start is called before the first frame update
     void Start()
     {
