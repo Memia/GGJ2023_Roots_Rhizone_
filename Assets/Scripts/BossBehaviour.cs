@@ -22,6 +22,8 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] GameObject crab;
     private Animator animator;
 
+    //Sound
+    [SerializeField] AudioClip[] crabSounds;
     // Start is called before the first frame update
     void Start()
     {
