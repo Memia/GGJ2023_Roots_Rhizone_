@@ -17,10 +17,7 @@ public class BossBehaviour : MonoBehaviour
     //public bool isPlayerAlive;
     public GameObject player;
     public PlayerBehaviour pBScript;
-
-    //Animation
-    [SerializeField] GameObject crab;
-    private Animator animator;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +26,6 @@ public class BossBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
         pBScript = player.GetComponent<PlayerBehaviour>();
         bossRB = GetComponent<Rigidbody>();
-        
-        animator = crab.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -61,7 +56,6 @@ public class BossBehaviour : MonoBehaviour
 
     void ChasePlayer()
     {
-        CrabWalk(); //Play walk animation
         transform.LookAt(player.transform);
 
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
@@ -82,8 +76,6 @@ public class BossBehaviour : MonoBehaviour
         attackIsOnCooldown = true;
         yield return new WaitForSeconds(attackCooldown);
         attackIsOnCooldown = false;
-        animator.SetTrigger("Attack_1");
-        Debug.Log("Attacking");
     }
 
     void Die()
@@ -94,12 +86,4 @@ public class BossBehaviour : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    #region Animation
-    void CrabWalk()
-    {
-        animator.SetBool("isWalking", true);
-    }
-
-    #endregion
 }

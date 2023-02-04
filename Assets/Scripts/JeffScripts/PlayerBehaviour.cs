@@ -16,6 +16,8 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject player;
     public GameObject boss;
     public BossBehaviour bossScript;
+    public GameObject gameManager;
+    public GameManager GMScript;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class PlayerBehaviour : MonoBehaviour
         //player = GetComponent<GameObject>();
         boss = GameObject.Find("Boss");
         bossScript = boss.GetComponent<BossBehaviour>();
+        gameManager = GameObject.Find("GameManager");
+        GMScript = gameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -38,9 +42,14 @@ public class PlayerBehaviour : MonoBehaviour
         if(playerhealth <= 0)
         {
             print("player is dead");
+            GMScript.StartCoroutine("RestartRun");
             isPlayerAlive = false;
             //play death animation
             //start new "run"
+        }
+        if(playerhealth > 0)
+        {
+            isPlayerAlive = true;
         }
     }
 
