@@ -13,6 +13,7 @@ public class BossBehaviour : MonoBehaviour
     public float distBetweenPlayer;
     public GameObject boss;
     public Rigidbody bossRB;
+    public Animator bossAnim;
 
     //public bool isPlayerAlive;
     public GameObject player;
@@ -28,13 +29,14 @@ public class BossBehaviour : MonoBehaviour
         player = GameObject.Find("Player");
         pBScript = player.GetComponent<PlayerBehaviour>();
         bossRB = GetComponent<Rigidbody>();
+        bossAnim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bossRB.constraints = RigidbodyConstraints.FreezeRotationX;
-        bossRB.constraints = RigidbodyConstraints.FreezeRotationZ;
+        //bossRB.constraints = RigidbodyConstraints.FreezeRotationX;
+        //bossRB.constraints = RigidbodyConstraints.FreezeRotationZ;
         if (pBScript.isPlayerAlive == true)
         {
             ChasePlayer();
@@ -74,6 +76,7 @@ public class BossBehaviour : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         print("attacking player");
+        bossAnim.Play("Armature|Attack_1");
         pBScript.playerhealth -= 10;
         attackIsOnCooldown = true;
         yield return new WaitForSeconds(attackCooldown);
