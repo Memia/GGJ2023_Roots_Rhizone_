@@ -124,6 +124,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &79763588 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 497982215026758933, guid: 0a92e18b7babc1646a50e8c05e179e2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2099544773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &202336177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692415736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &268812532
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EL33T
+  m_text: 'BOSS:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -689,7 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8941c8165129ce45b153394e9ad62b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
+  gameManager: {fileID: 1739449222}
+  input: {fileID: 202336177}
   integerUI: {fileID: 1577747071}
   selectIconUI: {fileID: 825481635}
   oneCharacterUI: {fileID: 1438636780}
@@ -1204,7 +1223,7 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
+  m_ShowToolkit: 0
   m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
@@ -1229,6 +1248,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1119553372
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119553369}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c6f853e662b7a2a49b2159bdc6fa9a41, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c6f853e662b7a2a49b2159bdc6fa9a41, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1119553374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3972753614353449780, guid: 0a92e18b7babc1646a50e8c05e179e2c,
@@ -1445,7 +1480,7 @@ PrefabInstance:
     - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DefineMutationContent
+      value: ChangeKeyMutation
       objectReference: {fileID: 0}
     - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
@@ -1821,12 +1856,17 @@ PrefabInstance:
     - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DefineMutationContent
+      value: ChangeBossName
       objectReference: {fileID: 0}
     - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627791988919886, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -241.8
       objectReference: {fileID: 0}
     - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
@@ -1902,6 +1942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mutateStats: {fileID: 515849840}
+  bossName: {fileID: 349554988}
 --- !u!4 &1739449223
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,6 +2291,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrabMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 5794489086867466104, guid: 4e7afdf31c20ebf419ea38bf1d358719,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98021
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794489086867466104, guid: 4e7afdf31c20ebf419ea38bf1d358719,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 8.592991e-31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794489086867466104, guid: 4e7afdf31c20ebf419ea38bf1d358719,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5794526363542072584, guid: 4e7afdf31c20ebf419ea38bf1d358719,
         type: 3}
       propertyPath: m_RootOrder
@@ -2448,9 +2504,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1119553371}
     - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: handAnim
+      value: 
+      objectReference: {fileID: 79763588}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: attackAnim
+      value: 
+      objectReference: {fileID: 1119553372}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
       propertyPath: playerhealth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: attackCamShake
+      value: 
+      objectReference: {fileID: 1119553372}
     - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
       propertyPath: cameraAnimator
       value: 
@@ -2939,6 +3007,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1739449222}
+    - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBossHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 2542627791988919881, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName

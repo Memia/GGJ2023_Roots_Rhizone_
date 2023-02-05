@@ -31,6 +31,10 @@ public class BossBehaviour : MonoBehaviour
         pBScript = player.GetComponent<PlayerBehaviour>();
         bossRB = GetComponent<Rigidbody>();
         bossAnim = GetComponentInChildren<Animator>();
+        if (BossCharacter.Stats.Health != null && BossCharacter.Stats.Health > 0)
+        {
+            health = BossCharacter.Stats.Health;
+        }
         //camShakeScript = GetComponentInChildren<CameraShake>();
     }
 

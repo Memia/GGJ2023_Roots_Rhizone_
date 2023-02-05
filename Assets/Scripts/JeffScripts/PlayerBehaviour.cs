@@ -20,10 +20,13 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject gameManager;
     public GameManager GMScript;
 
-    public Animation attackAnim;
+    [SerializeField] Animator handAnim;
+    public Animation attackCamShake;
     public CameraShake camShake;
 
     [SerializeField] Animator cameraAnimator;
+    private object attackAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +35,15 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript = boss.GetComponent<BossBehaviour>();
         gameManager = GameObject.Find("GameManager");
         GMScript = gameManager.GetComponent<GameManager>();
-<<<<<<< HEAD
+
         camShake = gameObject.GetComponent<CameraShake>();
 
-=======
+        if(PlayerCharacter.Stats.Damage > 0)
+        {
+            playerDamage = PlayerCharacter.Stats.Damage;
+        }
         PlayerCharacter.Stats.Health = playerhealth;
->>>>>>> a7535166e9e74e03397eda2213c1d168e6d1e881
+
         PlayerCharacter.Stats.isAlive = true;
     }
 
@@ -74,8 +80,8 @@ public class PlayerBehaviour : MonoBehaviour
             //  cameraAnimator.SetTrigger("Shake_Slap"); //Screenshake
             //CameraShaker.Presets.ShortShake3D();
             // print("attacking boss");
-            camShake.StartCoroutine("ShakeCam");
-            attackAnim.Play("SlapCamera");
+            // camShake.StartCoroutine("ShakeCam");
+           // attackCamShake.Play("SlapCamera");
             if (distFromBoss <= playerAttackRange && playerCanAttack)
             {
                 StartCoroutine(DamageBoss());
@@ -91,5 +97,6 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript.health -= playerDamage;
         yield return new WaitForSeconds(playerAttackCooldown);
         playerCanAttack = true;
+        Debug.Log(bossScript.health);
     }
 }

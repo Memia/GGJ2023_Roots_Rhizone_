@@ -6,6 +6,8 @@ using TMPro;
 //This script mutates and saves changes to player/boss stats using text mesh pro
 public class MutateStats : MonoBehaviour
 {
+
+    [SerializeField] GameManagement gameManager;
     [SerializeField] TMP_InputField input;
 
     #region Display UI
@@ -80,19 +82,33 @@ public class MutateStats : MonoBehaviour
     //Int mutations
     void MutateBossHealth()
     {
-        
-        BossCharacter.Stats.Health += int.Parse(input.text);
-        
+
+        integerUI.SetActive(true);
+
     }
 
+    public void ChangeBossHealth()
+    {
+        string var = integerUI.GetComponentInChildren<TMP_InputField>().text;
+        BossCharacter.Stats.Health += int.Parse(var);
+        
+        // BossCharacter.Stats.Health += int.Parse(integerUI.GetComponentInChildren<TMP_InputField>().text.ToString());
+    }
     void MutatePlayerDamage()
     {
-        PlayerCharacter.Stats.Damage = int.Parse(input.text);
 
+        integerUI.SetActive(true);
+       
     }
 
-    //Icon mutations
-    void TurnRainy()
+    public void ChangePlayerDamage()
+    {
+        PlayerCharacter.Stats.Damage = int.Parse(integerUI.GetComponentInChildren<TMP_InputField>().text.ToString());
+        Debug.Log(PlayerCharacter.Stats.Health);
+    }
+
+        //Icon mutations
+        void TurnRainy()
     {
 
     }
@@ -106,25 +122,37 @@ public class MutateStats : MonoBehaviour
     {
 
     }
+   // [SerializeField] private InputActionReference _movement;
     //Letter mutations
     void ChangeUpKey()
     {
-
+        char letter = oneCharacterUI.GetComponentInChildren<TMP_InputField>().text[0];
     }
 
     void ChangeDownKey()
     {
-
+        char letter = oneCharacterUI.GetComponentInChildren<TMP_InputField>().text[0];
     }
 
     void ChangeLeftKey()
-    { }
+    {
+        char letter = oneCharacterUI.GetComponentInChildren<TMP_InputField>().text[0];
+    }
 
     void ChangeRightKey()
-    { }
-     
-    void ChangeBossName()
-    { }
+    {
+        char letter = oneCharacterUI.GetComponentInChildren<TMP_InputField>().text[0];
+    }
+
+        public void ChangeBossName()
+    {
+        string newName = shortStringUI.GetComponentInChildren<TMP_InputField>().text;
+        BossCharacter.Stats.Name = newName;
+        //Debug.Log(BossCharacter.Stats.Name);
+        gameManager.SetBossName();
+        
+
+    }
     //String mutations
 
     #endregion
@@ -177,7 +205,11 @@ public class MutateStats : MonoBehaviour
     {
         //Display UI: 
         oneCharacterUI.SetActive(true);
-        int typeCount = MutationTypes.GetValues(typeof(OneCharacterMutationTypes)).Length - 1;
+    }
+    
+    public void ChangeKeyMutation()
+    {
+        int typeCount = MutationTypes.GetValues(typeof(OneCharacterMutationTypes)).Length;
         oneCharacterMutationType = (OneCharacterMutationTypes)Random.Range(0, typeCount);
 
         switch (oneCharacterMutationType)
@@ -201,9 +233,6 @@ public class MutateStats : MonoBehaviour
             default:
                 break;
         }
-
-
-
     }
     void DefineShortStringMutation()
     {
@@ -215,7 +244,7 @@ public class MutateStats : MonoBehaviour
         switch (shortStringMutationType)
         {
             case ShortStringMutationTypes.BossName:
-                ChangeBossName();
+                shortStringUI.SetActive(true);
                 break;
             default:
                 break;
@@ -255,7 +284,7 @@ public class MutateStats : MonoBehaviour
     {
         Debug.Log("Picked a type and now picking mutation");
         //Get the number of mutation types
-        int typeCount = MutationTypes.GetValues(typeof(MutationTypes)).Length - 1;
+        int typeCount = MutationTypes.GetValues(typeof(MutationTypes)).Length;
         mutationType = (MutationTypes)Random.Range(0, typeCount);
         //Choose one main mutation type
         
