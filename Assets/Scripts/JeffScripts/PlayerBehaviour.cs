@@ -29,7 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript = boss.GetComponent<BossBehaviour>();
         gameManager = GameObject.Find("GameManager");
         GMScript = gameManager.GetComponent<GameManager>();
-
+        PlayerCharacter.Stats.Health = playerhealth;
         PlayerCharacter.Stats.isAlive = true;
     }
 
