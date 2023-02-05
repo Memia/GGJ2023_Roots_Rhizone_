@@ -19,28 +19,28 @@ public class MutateStats : MonoBehaviour
     int number;
 
     #region Mutation Types
-    enum MutationTypes
+    enum InputMutationTypes
     {
         Integer,
-        SelectIcon,
         OneCharacter,
         ShortString
     }
 
-    
+    enum IconMutationTypes
+    {
+        Rainy,
+        UwUBoss,
+        DrUnkAF
+    }
+
+
     enum IntegerMutationTypes
     {
         BossHealth,
         PlayerDamage,
         
     }
-    enum SelectIconMutationTypes
-    {
-        Rainy,
-        UwUBoss,
-        DrUnkAF
-    
-    }
+
     enum OneCharacterMutationTypes
     {
         MovementUp,
@@ -53,9 +53,10 @@ public class MutateStats : MonoBehaviour
         BossName
     }
 
-    MutationTypes mutationType;
+    InputMutationTypes inputMutationType;
+    IconMutationTypes iconMutationType;
+    
     IntegerMutationTypes intergerMutationType;
-    SelectIconMutationTypes selectIconMutationType;
     OneCharacterMutationTypes oneCharacterMutationType;
     ShortStringMutationTypes shortStringMutationType;
     #endregion
@@ -71,11 +72,6 @@ public class MutateStats : MonoBehaviour
     {
 
     }
-
-
-
-
-
 
     #region Define Mutation Content
     #region Mutations
@@ -144,7 +140,7 @@ public class MutateStats : MonoBehaviour
         char letter = oneCharacterUI.GetComponentInChildren<TMP_InputField>().text[0];
     }
 
-        public void ChangeBossName()
+     void ChangeBossName()
     {
         string newName = shortStringUI.GetComponentInChildren<TMP_InputField>().text;
         BossCharacter.Stats.Name = newName;
@@ -159,10 +155,19 @@ public class MutateStats : MonoBehaviour
 
     void DefineIntMutation()
     {
+        //Display the int input UI panel
         integerUI.SetActive(true);
-        int typeCount = MutationTypes.GetValues(typeof(IntegerMutationTypes)).Length - 1;
+        //Select a random mutation type that is affected by int
+        int typeCount = InputMutationTypes.GetValues(typeof(IntegerMutationTypes)).Length - 1;
         intergerMutationType = (IntegerMutationTypes)Random.Range(0, typeCount);
 
+
+
+    }
+
+    void IntMutate()
+    {
+        //Trigger the functionality based on the current mutation type
         switch (intergerMutationType)
         {
             case IntegerMutationTypes.BossHealth:
@@ -181,19 +186,20 @@ public class MutateStats : MonoBehaviour
         //Display UI: Choose 2 of the 3 icons and set them as display
         selectIconUI.SetActive(true);
 
-        int typeCount = MutationTypes.GetValues(typeof(SelectIconMutationTypes)).Length - 1;
-        selectIconMutationType = (SelectIconMutationTypes)Random.Range(0, typeCount);
+        int typeCount = InputMutationTypes.GetValues(typeof(IconMutationTypes)).Length - 1;
+        iconMutationType = (IconMutationTypes)Random.Range(0, typeCount);
 
-        switch (selectIconMutationType)
+        //Trigger the functionality based on the current mutation type
+        switch (iconMutationType)
         {
-            case SelectIconMutationTypes.Rainy:
+            case IconMutationTypes.Rainy:
                 TurnRainy();
                 break;
-            case SelectIconMutationTypes.UwUBoss:
+            case IconMutationTypes.UwUBoss:
                 BossUwU();
 
                 break;
-            case SelectIconMutationTypes.DrUnkAF:
+            case IconMutationTypes.DrUnkAF:
                 SoDrunk();
                 break;
             default:
@@ -201,17 +207,15 @@ public class MutateStats : MonoBehaviour
         }
 
     }
+    
+
     void DefineOneCharacterMutation()
     {
         //Display UI: 
         oneCharacterUI.SetActive(true);
     }
-    
-    public void ChangeKeyMutation()
+    void CharMutate() //Choose which control to mutate
     {
-        int typeCount = MutationTypes.GetValues(typeof(OneCharacterMutationTypes)).Length;
-        oneCharacterMutationType = (OneCharacterMutationTypes)Random.Range(0, typeCount);
-
         switch (oneCharacterMutationType)
         {
             case OneCharacterMutationTypes.MovementUp:
@@ -234,12 +238,20 @@ public class MutateStats : MonoBehaviour
                 break;
         }
     }
+    void ChangeKeyMutation() //Execute mutation
+    {
+        int typeCount = InputMutationTypes.GetValues(typeof(OneCharacterMutationTypes)).Length;
+        oneCharacterMutationType = (OneCharacterMutationTypes)Random.Range(0, typeCount);
+
+
+    }
+
     void DefineShortStringMutation()
     {
 
         //Display UI
         shortStringUI.SetActive(true);
-        int typeCount = MutationTypes.GetValues(typeof(ShortStringMutationTypes)).Length - 1;
+        int typeCount = InputMutationTypes.GetValues(typeof(ShortStringMutationTypes)).Length - 1;
         shortStringMutationType = (ShortStringMutationTypes)Random.Range(0, typeCount);
         switch (shortStringMutationType)
         {
@@ -253,43 +265,69 @@ public class MutateStats : MonoBehaviour
     }
 
 
-    public void DefineMutationContent()
+    public void SelectInputMutateType()
     {
-        switch (mutationType)
+        switch (inputMutationType)
         {
-            case MutationTypes.Integer:
+            case InputMutationTypes.Integer:
                 //Display UI for integer mutation
                 DefineIntMutation();
                 break;
-            case MutationTypes.SelectIcon:
-                //Display UI for icon mutation
-                DefineSelectionIconMutation();
-                break;
-            case MutationTypes.OneCharacter:
+            case InputMutationTypes.OneCharacter:
                 //Display UI for character mutation
                 DefineOneCharacterMutation();
                 break;
-            case MutationTypes.ShortString:
+            case InputMutationTypes.ShortString:
                 //Display UI for string mutation
                 DefineShortStringMutation();
                 break;
             default:
                 break;
         }
-        Debug.Log("I've picked ONE!!!");
+
     }
 
-      
+    void SelectIconMutateType() 
+    { 
+        //Change this code, it needs to choose 2 from the pool of the icons
+        switch(iconMutationType)
+        {
+            case IconMutationTypes.Rainy:
+                break;
+            case IconMutationTypes.UwUBoss:
+                break;
+            case IconMutationTypes.DrUnkAF:
+                break;
+            default:
+                break;
+                
+        }
+    
+    }
+
+    //Select either input type of mutation or icon type of mutation as the next step in mutation
     void SelectMutationType()
     {
+        //A quick and dirty way to randomly select the type of mutation      Delete or change this randomizer as needed
+        int randomizer = 0;//Random.Range(0, 1);
+        if (randomizer == 0)
+        {
+            int typeCount = InputMutationTypes.GetValues(typeof(InputMutationTypes)).Length;
+            inputMutationType = (InputMutationTypes)Random.Range(0, typeCount);
+            SelectInputMutateType();
+        
+        }
+        else
+        {
+            SelectIconMutateType();
+        }
+        
         Debug.Log("Picked a type and now picking mutation");
         //Get the number of mutation types
-        int typeCount = MutationTypes.GetValues(typeof(MutationTypes)).Length;
-        mutationType = (MutationTypes)Random.Range(0, typeCount);
+
         //Choose one main mutation type
         
-        //Choose a specific mutation
-        DefineMutationContent();
+        
     }  
 
 
@@ -303,18 +341,36 @@ public class MutateStats : MonoBehaviour
     #endregion
 
 
+    public void InputMutate()
+    {
+        switch (inputMutationType)
+        {
+            case (InputMutationTypes.Integer):            
+            IntMutate();
+                break;
+            case (InputMutationTypes.OneCharacter):
+                CharMutate();
+                break;
+            case (InputMutationTypes.ShortString):
+                ChangeBossName(); //this is spaghetti, change or delete later!
+                break;
+            default:
+                break;
+                
+    }
+        }
 
-    
     public void BeginMutateProcess()
     {
         SelectMutationType();
-        Debug.Log("Begin Choosing Type");
         //Select type of mutation
         //Setactive the mutation prompt
 
     }
-
-
-
-
 }
+
+
+
+
+
+
