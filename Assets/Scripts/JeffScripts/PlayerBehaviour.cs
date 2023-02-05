@@ -30,6 +30,8 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript = boss.GetComponent<BossBehaviour>();
         gameManager = GameObject.Find("GameManager");
         GMScript = gameManager.GetComponent<GameManager>();
+
+        PlayerCharacter.Stats.isAlive = true;
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             //print("player is dead");
             GMScript.StartCoroutine("RestartRun");
+            PlayerCharacter.Stats.isAlive = false;
             isPlayerAlive = false;
             //play death animation
             //start new "run"

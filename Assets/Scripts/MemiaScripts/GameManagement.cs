@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManagement : MonoBehaviour
 {
     [SerializeField] MutateStats mutateStats;
+    bool mutated;
     // Start is called before the first frame update
     void Start()
     {
 
-        
     }
 
     // Update is called once per frame
@@ -18,7 +18,11 @@ public class GameManagement : MonoBehaviour
     {
         if (PlayerCharacter.Stats.isAlive == false)
         {
-            mutateStats.BeginMutateProcess();
+            if (!mutated)
+            {
+                mutateStats.BeginMutateProcess();
+                mutated = true;
+            }
         }
 
 
