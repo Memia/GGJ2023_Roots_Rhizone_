@@ -689,9 +689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8941c8165129ce45b153394e9ad62b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intInput: {fileID: 0}
+  input: {fileID: 0}
   integerUI: {fileID: 1577747071}
-  selectIconUI: {fileID: 0}
+  selectIconUI: {fileID: 825481635}
   oneCharacterUI: {fileID: 1438636780}
   shortStringUI: {fileID: 1692415738}
 --- !u!4 &515849841
@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 701441121}
   - component: {fileID: 701441123}
   - component: {fileID: 701441122}
+  - component: {fileID: 701441124}
   m_Layer: 5
   m_Name: Boss_HP_Image
   m_TagString: Untagged
@@ -785,6 +786,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701441120}
   m_CullTransparentMesh: 1
+--- !u!114 &701441124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701441120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b6c9ad179d9074286101e01e3a9ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 1769908534}
+  nameText: {fileID: 349554988}
+  boss: {fileID: 1603662072}
+  bossScript: {fileID: 0}
+--- !u!1 &825481635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2542627791380537906, guid: ca8d37b70afe01f4f93bb49ddda08b66,
+    type: 3}
+  m_PrefabInstance: {fileID: 974522584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &974522584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1584,6 +1607,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f091b9ee8d34f0b40b6401b4fd394cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1603662072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2071971617718350864, guid: 30c46a26991475d4fa9bdebb00564a3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2132680483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1674232875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2111,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2099544773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877615419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877615411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724c505fa8abb9449993d9973054e956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 1119553374}
+  orignalCameraPos: {x: 0.20000005, y: 1.944, z: 0}
+  shakeDuration: 0.5
+  shakeAmount: 0.2
 --- !u!1001 &1980702139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,6 +2448,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1119553371}
     - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: playerhealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
       propertyPath: cameraAnimator
       value: 
       objectReference: {fileID: 1119553371}
@@ -2655,6 +2704,16 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 1877615418}
+    - target: {fileID: 2071971617718350875, guid: 30c46a26991475d4fa9bdebb00564a3a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1877615411}
+    - target: {fileID: 2071971617718350875, guid: 30c46a26991475d4fa9bdebb00564a3a,
+        type: 3}
+      propertyPath: camShakeScript
+      value: 
+      objectReference: {fileID: 1877615419}
     - target: {fileID: 2071971617718350876, guid: 30c46a26991475d4fa9bdebb00564a3a,
         type: 3}
       propertyPath: m_RootOrder

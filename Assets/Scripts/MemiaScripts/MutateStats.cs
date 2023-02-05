@@ -72,13 +72,6 @@ public class MutateStats : MonoBehaviour
 
 
 
-    void SelectMutationType()
-    {
-        //Get the number of mutation types
-        int typeCount = MutationTypes.GetValues(typeof(MutationTypes)).Length -1;
-        mutationType = (MutationTypes)Random.Range(0, typeCount);
-    }
-
 
 
 
@@ -254,22 +247,45 @@ public class MutateStats : MonoBehaviour
             default:
                 break;
         }
-        //Display UI
+        Debug.Log("I've picked ONE!!!");
     }
-    #endregion
+
+      
+    void SelectMutationType()
+    {
+        Debug.Log("Picked a type and now picking mutation");
+        //Get the number of mutation types
+        int typeCount = MutationTypes.GetValues(typeof(MutationTypes)).Length - 1;
+        mutationType = (MutationTypes)Random.Range(0, typeCount);
+        //Choose one main mutation type
+        
+        //Choose a specific mutation
+        DefineMutationContent();
+    }  
+
+
+    //Display UI
 
     public void SaveData()
     {
-      //  number = int.Parse(input.text.ToString());
-      
-    }
+        //  number = int.Parse(input.text.ToString());
 
+    }
+    #endregion
+
+
+
+    
     public void BeginMutateProcess()
     {
         SelectMutationType();
+        Debug.Log("Begin Choosing Type");
         //Select type of mutation
         //Setactive the mutation prompt
-        DefineMutationContent();
+
     }
+
+
+
 
 }
