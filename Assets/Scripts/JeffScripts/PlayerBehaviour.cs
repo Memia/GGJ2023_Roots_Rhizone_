@@ -20,6 +20,9 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject gameManager;
     public GameManager GMScript;
 
+    public Animation attackAnim;
+    public CameraShake camShake;
+
     [SerializeField] Animator cameraAnimator;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript = boss.GetComponent<BossBehaviour>();
         gameManager = GameObject.Find("GameManager");
         GMScript = gameManager.GetComponent<GameManager>();
+        camShake = gameObject.GetComponent<CameraShake>();
 
         PlayerCharacter.Stats.isAlive = true;
     }
@@ -63,9 +67,11 @@ public class PlayerBehaviour : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //swing sword
-           //  cameraAnimator.SetTrigger("Shake_Slap"); //Screenshake
+            //  cameraAnimator.SetTrigger("Shake_Slap"); //Screenshake
             //CameraShaker.Presets.ShortShake3D();
             // print("attacking boss");
+            camShake.StartCoroutine("ShakeCam");
+            attackAnim.Play("SlapCamera");
             if (distFromBoss <= playerAttackRange && playerCanAttack)
             {
                 StartCoroutine(DamageBoss());
