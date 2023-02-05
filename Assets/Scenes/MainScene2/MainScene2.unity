@@ -1490,6 +1490,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 282410267}
+  integerUI: {fileID: 0}
+  selectIconUI: {fileID: 0}
+  oneCharacterUI: {fileID: 0}
+  shortStringUI: {fileID: 0}
 --- !u!4 &515849841
 Transform:
   m_ObjectHideFlags: 0
@@ -2147,7 +2151,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: c6f853e662b7a2a49b2159bdc6fa9a41, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!4 &1119553374 stripped
@@ -2897,7 +2901,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739449221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 407902991ec8d4743bb66e6a1b2f885f, type: 3}
   m_Name: 
@@ -3112,6 +3116,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2099544773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877615419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877615411}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724c505fa8abb9449993d9973054e956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 1119553374}
+  orignalCameraPos: {x: 0, y: 0, z: 0}
+  shakeDuration: 0.25
+  shakeAmount: 0.1
 --- !u!1 &1908804460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,6 +3587,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: camShake
+      value: 
+      objectReference: {fileID: 1877615419}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
+      propertyPath: attackAnim
+      value: 
+      objectReference: {fileID: 1119553371}
+    - target: {fileID: 627869160, guid: 0a92e18b7babc1646a50e8c05e179e2c, type: 3}
       propertyPath: playerDamage
       value: 20
       objectReference: {fileID: 0}
@@ -3866,7 +3894,7 @@ PrefabInstance:
     - target: {fileID: 2071971617718350876, guid: 30c46a26991475d4fa9bdebb00564a3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.5503276
+      value: 0.33644614
       objectReference: {fileID: 0}
     - target: {fileID: 2071971617718350876, guid: 30c46a26991475d4fa9bdebb00564a3a,
         type: 3}
@@ -3876,7 +3904,7 @@ PrefabInstance:
     - target: {fileID: 2071971617718350876, guid: 30c46a26991475d4fa9bdebb00564a3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.83494884
+      value: 0.9417027
       objectReference: {fileID: 0}
     - target: {fileID: 2071971617718350876, guid: 30c46a26991475d4fa9bdebb00564a3a,
         type: 3}

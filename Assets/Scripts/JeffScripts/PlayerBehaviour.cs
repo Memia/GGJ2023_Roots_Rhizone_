@@ -32,8 +32,12 @@ public class PlayerBehaviour : MonoBehaviour
         bossScript = boss.GetComponent<BossBehaviour>();
         gameManager = GameObject.Find("GameManager");
         GMScript = gameManager.GetComponent<GameManager>();
+<<<<<<< HEAD
         camShake = gameObject.GetComponent<CameraShake>();
 
+=======
+        PlayerCharacter.Stats.Health = playerhealth;
+>>>>>>> a7535166e9e74e03397eda2213c1d168e6d1e881
         PlayerCharacter.Stats.isAlive = true;
     }
 
