@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BossCharacter : MonoBehaviour
 {
-    public static BossCharacter Stats { get; private set; }
-    public int Health { get; private set; }
-    public int Damage { get; private set; }
+    public static BossCharacter Stats { get;  set; }
+    public int Health { get;  set; }
+    public int Damage { get;  set; }
     
-    public string Name { get; private set; }
+    public string Name { get;  set; }
     private void Awake()
     {
         if (Stats == null)

@@ -217,9 +217,9 @@ RectTransform:
   m_Children:
   - {fileID: 1577747072}
   - {fileID: 974522585}
+  - {fileID: 392794822}
   - {fileID: 1438636779}
   - {fileID: 1692415737}
-  - {fileID: 392794822}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -345,18 +345,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &282410267 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 2542627792018694221}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &349554986
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +658,7 @@ Transform:
   m_LocalScale: {x: 2.566845, y: 2.566845, z: 2.566845}
   m_Children: []
   m_Father: {fileID: 268812536}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515849839
 GameObject:
@@ -701,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8941c8165129ce45b153394e9ad62b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 282410267}
+  intInput: {fileID: 0}
   integerUI: {fileID: 1577747071}
   selectIconUI: {fileID: 0}
   oneCharacterUI: {fileID: 1438636780}
@@ -847,7 +835,7 @@ PrefabInstance:
     - target: {fileID: 2542627791380538061, guid: ca8d37b70afe01f4f93bb49ddda08b66,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2542627791380538061, guid: ca8d37b70afe01f4f93bb49ddda08b66,
         type: 3}
@@ -1461,6 +1449,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -236
       objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_InputType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_KeyboardType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_CharacterValidation
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2542627792292044119, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1790,6 +1798,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_CharacterValidation
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2542627792292044119, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
@@ -2215,7 +2233,7 @@ PrefabInstance:
     - target: {fileID: 5794526363542072584, guid: 4e7afdf31c20ebf419ea38bf1d358719,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5794526363542072584, guid: 4e7afdf31c20ebf419ea38bf1d358719,
         type: 3}
@@ -2730,7 +2748,7 @@ PrefabInstance:
     - target: {fileID: 2542627790902549741, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_text
-      value: "ENTER ANY NUMBER\n  BETWEEN  1 - 10"
+      value: ENTER ANY NUMBER
       objectReference: {fileID: 0}
     - target: {fileID: 2542627790902549741, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
@@ -2760,7 +2778,7 @@ PrefabInstance:
     - target: {fileID: 2542627791380538061, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2542627791380538061, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}
@@ -2866,6 +2884,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_KeyboardType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542627792292044118, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
+        type: 3}
+      propertyPath: m_CharacterValidation
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2542627792336327216, guid: c5c9a46c2c30ef24392ac914cc9e08ed,
         type: 3}

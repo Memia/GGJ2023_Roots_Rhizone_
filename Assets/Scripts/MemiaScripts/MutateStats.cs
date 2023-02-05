@@ -87,11 +87,14 @@ public class MutateStats : MonoBehaviour
     //Int mutations
     void MutateBossHealth()
     {
-
+        
+        BossCharacter.Stats.Health += int.Parse(input.text);
+        
     }
 
     void MutatePlayerDamage()
     {
+        PlayerCharacter.Stats.Damage = int.Parse(input.text);
 
     }
 
@@ -257,7 +260,7 @@ public class MutateStats : MonoBehaviour
 
     public void SaveData()
     {
-        number = int.Parse(input.text.ToString());
+      //  number = int.Parse(input.text.ToString());
       
     }
 
