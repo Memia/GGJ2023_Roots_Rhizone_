@@ -6,6 +6,12 @@ using TMPro;
 
 public class GameManagement : MonoBehaviour
 {
+    public float gameTimer;
+    public float timeScore;
+
+    public TMP_Text scoreText;
+    public TMP_InputField nameInput;
+
     [SerializeField] MutateStats mutateStats;
     [SerializeField] TextMeshProUGUI bossName;
     string nameVar;
@@ -37,7 +43,7 @@ public class GameManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerCharacter.Stats.isAlive == false)
+        /*if (PlayerCharacter.Stats.isAlive == false)
         {
             timer -= Time.deltaTime;
             if (!mutated && timer <= 0)
@@ -46,9 +52,10 @@ public class GameManagement : MonoBehaviour
                 mutateStats.BeginMutateProcess();
                 mutated = true;
             }
-        }
+        }*/ //un-comment this code when ready to hook-up mutations
 
-
+        gameTimer += Time.deltaTime;
+        
     }   
     
     public void RestartGame()
@@ -57,10 +64,19 @@ public class GameManagement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+<<<<<<< HEAD
     public void SetBossName()
     {
  
         nameVar = BossCharacter.Stats.Name;
         bossName.text = nameVar;
+=======
+    public void StopTimer()
+    {
+        scoreText.gameObject.SetActive(true);
+        nameInput.gameObject.SetActive(true);
+        timeScore = gameTimer;
+        scoreText.text = "You Win!   Time:   " + timeScore;
+>>>>>>> origin/main
     }
 }

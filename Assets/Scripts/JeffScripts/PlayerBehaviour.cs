@@ -38,10 +38,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         camShake = gameObject.GetComponent<CameraShake>();
 
+<<<<<<< HEAD
         if(PlayerCharacter.Stats.Damage > 0)
         {
             playerDamage = PlayerCharacter.Stats.Damage;
         }
+=======
+
+>>>>>>> origin/main
         PlayerCharacter.Stats.Health = playerhealth;
 
         PlayerCharacter.Stats.isAlive = true;

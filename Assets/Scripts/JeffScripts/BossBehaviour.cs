@@ -21,6 +21,8 @@ public class BossBehaviour : MonoBehaviour
 
     public CameraShake camShakeScript;
 
+    public GameManagement gameManage;
+
     //Sound
     [SerializeField] AudioClip[] crabSounds;
     // Start is called before the first frame update
@@ -36,6 +38,8 @@ public class BossBehaviour : MonoBehaviour
             health = BossCharacter.Stats.Health;
         }
         //camShakeScript = GetComponentInChildren<CameraShake>();
+
+
     }
 
     // Update is called once per frame
@@ -103,7 +107,9 @@ public class BossBehaviour : MonoBehaviour
     {
         print("boss is dead");
         bossAnim.Play("Armature|Die");
-        yield return new WaitForSeconds(10f);
+        
+        yield return new WaitForSeconds(5f);
+        gameManage.StopTimer(); //displays game timer in GameManagement.cs
         Destroy(this.gameObject);
     }
 }
