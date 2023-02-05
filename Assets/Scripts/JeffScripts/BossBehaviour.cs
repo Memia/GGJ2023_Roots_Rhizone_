@@ -18,7 +18,8 @@ public class BossBehaviour : MonoBehaviour
     //public bool isPlayerAlive;
     public GameObject player;
     public PlayerBehaviour pBScript;
-    
+
+    public CameraShake camShakeScript;
 
     //Sound
     [SerializeField] AudioClip[] crabSounds;
@@ -30,6 +31,7 @@ public class BossBehaviour : MonoBehaviour
         pBScript = player.GetComponent<PlayerBehaviour>();
         bossRB = GetComponent<Rigidbody>();
         bossAnim = GetComponentInChildren<Animator>();
+        camShakeScript = GetComponentInChildren<CameraShake>();
     }
 
     // Update is called once per frame
@@ -78,6 +80,7 @@ public class BossBehaviour : MonoBehaviour
         print("attacking player");
         bossAnim.Play("Armature|Attack_1");
         pBScript.playerhealth -= 10;
+        camShakeScript.StartCoroutine("ShakeCam");
         attackIsOnCooldown = true;
         yield return new WaitForSeconds(attackCooldown);
         attackIsOnCooldown = false;
@@ -87,8 +90,15 @@ public class BossBehaviour : MonoBehaviour
     {
         if(health <= 0)
         {
-            print("boss is dead");
-            Destroy(this.gameObject);
+            StartCoroutine("KillBoss");
         }
+    }
+
+    IEnumerator KillBoss()
+    {
+        print("boss is dead");
+        bossAnim.Play("Armature|Die");
+        yield return new WaitForSeconds(10f);
+        Destroy(this.gameObject);
     }
 }

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public float floatInput;
     public int intInput;
+
+    
     void Start()
     {
         playerObject = GameObject.Find("Player");
@@ -33,7 +35,14 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+
+        IncreaseGameTime();
         
+    }
+
+    void IncreaseGameTime()
+    {
+        gameTimer += Time.deltaTime;
     }
 
     IEnumerator RestartRun()
