@@ -31,7 +31,7 @@ public class BossBehaviour : MonoBehaviour
         pBScript = player.GetComponent<PlayerBehaviour>();
         bossRB = GetComponent<Rigidbody>();
         bossAnim = GetComponentInChildren<Animator>();
-        camShakeScript = GetComponentInChildren<CameraShake>();
+        //camShakeScript = GetComponentInChildren<CameraShake>();
     }
 
     // Update is called once per frame
@@ -79,7 +79,8 @@ public class BossBehaviour : MonoBehaviour
     {
         print("attacking player");
         bossAnim.Play("Armature|Attack_1");
-        pBScript.playerhealth -= 10;
+        // pBScript.playerhealth -= 10;
+        PlayerCharacter.Stats.Health -= 10;
         camShakeScript.StartCoroutine("ShakeCam");
         attackIsOnCooldown = true;
         yield return new WaitForSeconds(attackCooldown);

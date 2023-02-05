@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour
         gameTimer += Time.deltaTime;
     }
 
-    IEnumerator RestartRun()
+    /*IEnumerator RestartRun()
     {
         yield return new WaitForSeconds(5f);
         canSelectMutation = true;
         //load random UI to select mutations
         if(canSelectMutation == true)
         {
-            System.Action[] mutations = new System.Action[] { AddPlayerHealth,/* MinusPlayerHealth, AddBossHealth, MinusBossHealth, AddPlayerSpeed, MinusPlayerSpeed, AddBossSpeed, MinusBossSpeed */};
+            System.Action[] mutations = new System.Action[] { AddPlayerHealth,*//* MinusPlayerHealth, AddBossHealth, MinusBossHealth, AddPlayerSpeed, MinusPlayerSpeed, AddBossSpeed, MinusBossSpeed *//*};
             int randomMutation = Random.Range(0, mutations.Length);
             mutations[randomMutation]();
             canSelectMutation = false;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         canSelectMutation = false;
         StopCoroutine("RestartRun");
         //playerScript.playerhealth += intInput;
-    }
+    }*/
     void MinusPlayerHealth()
     {
         print("minusplayerhealth");
@@ -166,5 +166,5 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(bossObject);
     }
-    #endregion
+    
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CameraShake;
 
 
 public class PlayerBehaviour : MonoBehaviour
@@ -44,16 +43,16 @@ public class PlayerBehaviour : MonoBehaviour
 
     void CheckIfDead()
     {
-        if(playerhealth <= 0)
+        if(PlayerCharacter.Stats.Health <= 0)
         {
             //print("player is dead");
-            GMScript.StartCoroutine("RestartRun");
+           // GMScript.StartCoroutine("RestartRun");
             PlayerCharacter.Stats.isAlive = false;
             isPlayerAlive = false;
             //play death animation
             //start new "run"
         }
-        if(playerhealth > 0)
+        if(PlayerCharacter.Stats.Health > 0)
         {
             isPlayerAlive = true;
         }
