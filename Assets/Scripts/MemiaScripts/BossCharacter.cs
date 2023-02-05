@@ -8,7 +8,7 @@ public class BossCharacter : MonoBehaviour
     public int Health { get; private set; }
     public int Damage { get; private set; }
     
-
+    public string Name { get; private set; }
     private void Awake()
     {
         if (Stats == null)

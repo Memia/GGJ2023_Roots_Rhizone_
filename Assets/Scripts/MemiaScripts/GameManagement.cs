@@ -20,6 +20,7 @@ public class GameManagement : MonoBehaviour
         {
             if (!mutated)
             {
+                Cursor.lockState = CursorLockMode.None;
                 mutateStats.BeginMutateProcess();
                 mutated = true;
             }
@@ -31,5 +32,6 @@ public class GameManagement : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
